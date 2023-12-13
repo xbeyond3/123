@@ -1,4 +1,4 @@
-mixed-port: 7890
+mixed-port: 7897
 allow-lan: false
 bind-address: '*'
 mode: rule
@@ -17,18 +17,17 @@ dns:
   enable: true
   ipv6: true 
   listen: 0.0.0.0:53
-  enhanced-mode: fake-ip # or redir-host
-  fake-ip-range: 198.18.0.1/16 # if you don't know what it is, don't change it
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   nameserver:
-      - ::1
-  #  - https://doh.pub/dns-query
-  #  - https://dns.alidns.com
-#  fallback: # concurrent request with nameserver, fallback used when GEOIP country isn't CN
-#   - https://8.8.8.8/dns-query
-#    - https://1.1.1.1/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com
+  fallback: # concurrent request with nameserver, fallback used when GEOIP country isn't CN
+    - https://8.8.8.8/dns-query
+    - https://1.1.1.1/dns-query
   fallback-filter:
-    geoip: true # default
-    ipcidr: # ips in these subnets will be considered polluted
+    geoip: true 
+    ipcidr: 
       - 240.0.0.0/4 
 
 tun:
@@ -70,8 +69,6 @@ proxy-groups:
 - name: "🛫海外流量"
   type: select
   proxies:
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
     - "🇭🇰香港 HongKong"
     - "🇹🇼台湾 TaiWan"
     - "🇯🇵日本 Japan"
@@ -82,17 +79,6 @@ proxy-groups:
     - "🗺️其它地区"
     - DIRECT
 
-- name: "👉🏻手动选择1"
-  type: select
-  tolerance: 50
-  use:
-  - sub1
-
-- name: "👉🏻手动选择2"
-  type: select
-  tolerance: 50
-  use:
-  - sub1
 
 #代理地区
 - name: "🇭🇰香港 HongKong"
@@ -144,7 +130,6 @@ proxy-groups:
   filter: "(?i)(韩|kr|korea)"
   strategy: consistent-hashing
 
-#clash premium内核不支持此特性
 - name: "🗺️其它地区"
   type: select
   use:
@@ -163,8 +148,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "🐳Microsoft"
   type: select
@@ -178,8 +161,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
     - DIRECT
 
 - name: "🍎苹果服务"
@@ -195,8 +176,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "🦁Amazon"
   type: select
@@ -211,8 +190,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "🧜‍♀️OpenAI"
   type: select
@@ -226,8 +203,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "🧑‍💻Github"
   type: select
@@ -241,8 +216,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "☁️CloudGlobal"
   type: select
@@ -256,8 +229,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "🕹️Game"
   type: select
@@ -272,9 +243,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
-
 - name: "✈️Telegram"
   type: select
   proxies:
@@ -287,9 +255,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
-
 - name: "🐦Twitter"
   type: select
   proxies:
@@ -302,8 +267,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "💃TikTok"
   type: select
@@ -317,8 +280,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "📹️YouTube"
   type: select
@@ -332,9 +293,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
-
 - name: "📼海外流媒体"
   type: select
   proxies:
@@ -347,8 +305,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "🎧️Spotify"
   type: select
@@ -362,8 +318,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "📼国内流媒体"
   type: select
@@ -378,16 +332,13 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "📺️哔哩哔哩"
   type: select
   proxies:
     - DIRECT
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
+
   use:
   - sub1
   filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan"
@@ -398,8 +349,7 @@ proxy-groups:
     - "🛫海外流量"
     - "🇸🇬新加坡 Singapore"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
+
 
 - name: "📺️巴哈姆特"
   type: select
@@ -428,8 +378,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "⬇PT下载"
   type: select
@@ -443,8 +391,6 @@ proxy-groups:
     - "🇰🇷韩国  Korea"
     - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
 
 - name: "🎯广告拦截"
   type: select
@@ -456,8 +402,6 @@ proxy-groups:
   type: select
   proxies:
     - "🛫海外流量"
-    - "👉🏻手动选择1"
-    - "👉🏻手动选择2"
     - DIRECT
 
 geodata-mode: true
