@@ -8,11 +8,6 @@ external-controller: "127.0.0.1:9090"
 experimental: # experimental feature
   ignore-resolve-fail: true # ignore dns resolve fail, default value is true
 
-#hosts:
-#  '*.clash.dev': '127.0.0.1'
-#  'alpha.clash.dev': '::1'
-#  '*.notion.so': '119.28.13.121' #notion
-
 dns:
   enable: true
   ipv6: true 
@@ -69,327 +64,85 @@ proxy-groups:
 - name: "🛫海外流量"
   type: select
   proxies:
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇬🇧英国 UK"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🗺️其它地区"
+    - "⚖️ 负载均衡-散列"
+    - "⚖️ 负载均衡-轮询"
+    - "♻️ AutoTest"
     - DIRECT
-
 
 #代理地区
 - name: "🇭🇰香港 HongKong"
-  type: load-balance
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
   use:
   - sub1
   filter: "(?i)港|hk|hongkong|hong kong"
-  strategy: consistent-hashing
-
-- name: "🇹🇼台湾 TaiWan"
-  type: load-balance
-  use:
-  - sub1
-  filter: "(?i)台|tw|taiwan"
-  strategy: consistent-hashing
-
-- name: "🇯🇵日本 Japan"
-  type: load-balance
-  use:
-  - sub1
-  filter: "(?i)日本|jp|japan"
-  strategy: consistent-hashing
 
 - name: "🇺🇸美国 USA"
-  type: load-balance
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
   use:
   - sub1
   filter: "(?i)美|us|unitedstates|united states"
-  strategy: consistent-hashing
-
-- name: "🇬🇧英国 UK"
-  type: load-balance
-  use:
-  - sub1
-  filter: "(?i)英|uk|unitedkingdom|united kingdom"
-  strategy: consistent-hashing
 
 - name: "🇸🇬新加坡 Singapore"
-  type: load-balance
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
   use:
   - sub1
   filter: "(?i)(新|sg|singapore)"
-  strategy: consistent-hashing
-
-- name: "🇰🇷韩国  Korea"
-  type: load-balance
-  use:
-  - sub1
-  filter: "(?i)(韩|kr|korea)"
-  strategy: consistent-hashing
 
 - name: "🗺️其它地区"
-  type: select
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
   use:
   - sub1
   exclude-filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|美|us|unitedstates|united states|新|sg|singapore|韩|kr|korea|英|uk|unitedkingdom|united kingdom"
-
-- name: "🐱Google"
-  type: select
+  
+- name: "⚖️ 负载均衡-散列"
+  type: load-balance
+  strategy: consistent-hashing
+  url: https://www.gstatic.com/generate_204
+  interval: 300
   proxies:
-    - "🛫海外流量"
     - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
     - "🇺🇸美国 USA"
     - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
     - "🗺️其它地区"
-
-- name: "🐳Microsoft"
-  type: select
+    
+- name: "⚖️ 负载均衡-轮询"
+  type: load-balance
+  strategy: round-robin
+  url: https://www.gstatic.com/generate_204
+  interval: 300
   proxies:
-    - "🛫海外流量"
     - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
     - "🇺🇸美国 USA"
     - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
     - "🗺️其它地区"
-    - DIRECT
-
-- name: "🍎苹果服务"
-  type: select
-  proxies:
-    - DIRECT
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "🦁Amazon"
-  type: select
-  proxies:
-    - DIRECT
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
+    
+- name: "♻️ AutoTest"
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  use:
+  - sub1
 
 - name: "🧜‍♀️OpenAI"
   type: select
   proxies:
     - "🛫海外流量"
     - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
     - "🇺🇸美国 USA"
     - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "🧑‍💻Github"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "☁️CloudGlobal"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "🕹️Game"
-  type: select
-  proxies:
-    - DIRECT
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-- name: "✈️Telegram"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-- name: "🐦Twitter"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "💃TikTok"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "📹️YouTube"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-- name: "📼海外流媒体"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "🎧️Spotify"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "📼国内流媒体"
-  type: select
-  proxies:
-    - DIRECT
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "📺️哔哩哔哩"
-  type: select
-  proxies:
-    - DIRECT
-    - "🗺️其它地区"
-
-  use:
-  - sub1
-  filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan"
-
-- name: "📺️哔哩哔哩东南亚"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇸🇬新加坡 Singapore"
-    - "🗺️其它地区"
-
-
-- name: "📺️巴哈姆特"
-  type: select
-  use:
-  - sub1
-  filter: "(?i)台|tw|taiwan"
-  proxies:
-  - "🛫海外流量"
-
-- name: "🥵Niconico"
-  type: select
-  use:
-  - sub1
-  filter: "(?i)日本|jp|japan"
-  proxies:
-  - "🛫海外流量"
-
-- name: "🥵EHentai"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
-    - "🗺️其它地区"
-
-- name: "⬇PT下载"
-  type: select
-  proxies:
-    - "🛫海外流量"
-    - "🇭🇰香港 HongKong"
-    - "🇹🇼台湾 TaiWan"
-    - "🇯🇵日本 Japan"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🇰🇷韩国  Korea"
-    - "🇬🇧英国 UK"
     - "🗺️其它地区"
 
 - name: "🎯广告拦截"
@@ -402,6 +155,7 @@ proxy-groups:
   type: select
   proxies:
     - "🛫海外流量"
+    - "♻️ AutoTest"    
     - DIRECT
 
 geodata-mode: true
@@ -739,7 +493,6 @@ rules:
   - RULE-SET,lancidr,DIRECT #局域网 IP 及保留 IP 地址列表
   - RULE-SET,Direct,DIRECT
 
-  - RULE-SET,Youku,📼国内流媒体 #与广告冲突
   #广告域名
   - RULE-SET,Advertising_Classical,🎯广告拦截
   - RULE-SET,AdGuardSDNSFilter_Direct,🐟️漏网之鱼
@@ -752,70 +505,21 @@ rules:
   - RULE-SET,Marketing,🎯广告拦截
   - DOMAIN-SUFFIX,kox.moe,🛫海外流量
 
-  #偷渡
-  - RULE-SET,BiliBiliIntl,📺️哔哩哔哩东南亚
-  - RULE-SET,BiliBili,📺️哔哩哔哩
-  - RULE-SET,TencentVideo,📼国内流媒体
-  - RULE-SET,WeTV,📼国内流媒体
-  - RULE-SET,iQIYI,📼国内流媒体
 
   #PT
-  - RULE-SET,PT,⬇PT下载
+  - RULE-SET,PT,DIRECT
 
   #国外服务
-  - RULE-SET,EHentai,🥵EHentai #EHentai
   - RULE-SET,Pixiv,🛫海外流量
-  - RULE-SET,Niconico,🥵Niconico
   - RULE-SET,Discord,🛫海外流量
   #Notion
   - DOMAIN-SUFFIX,notion.so,DIRECT
-  #Apple
-  - RULE-SET,Apple,🍎苹果服务
-  #Telegram
-  - RULE-SET,Telegram,✈️Telegram
-  #Twitter
-  - RULE-SET,Twitter,🐦Twitter
-  - RULE-SET,TikTok,💃TikTok
+
   # OpenAI (ChatGPT)
   - RULE-SET,OpenAI,🧜‍♀️OpenAI
-  # Microsoft
-  - RULE-SET,Microsoft,🐳Microsoft
-  - RULE-SET,Bing,🐳Microsoft
-  #Amazon&PrimeVideo
-  - RULE-SET,AmazonPrimeVideo,📼海外流媒体
 
-  #Github
-  - RULE-SET,Github,🧑‍💻Github
-
-  #海外流媒体
-  - RULE-SET,YouTube,📹️YouTube
-  - RULE-SET,YouTubeMusic,📹️YouTube
-  #Netflix
-  - RULE-SET,Netflix,📼海外流媒体
-  # Disney+
-  - RULE-SET,Discovery,📼海外流媒体
-  # Hulu
-  - RULE-SET,Hulu,📼海外流媒体
-  # HBO
-  - RULE-SET,HBO,📼海外流媒体
-  # Pandora
-  - RULE-SET,Pandora,📼海外流媒体
-  #Spotify
-  - RULE-SET,Spotify,🎧️Spotify
-  #巴哈姆特
-  - RULE-SET,Bahamut,📺️巴哈姆特
   #游戏
   - RULE-SET,GameDownloadCN,DIRECT #游戏下载
-  - RULE-SET,Game,🕹️Game
-  
-  #CloudGlobal
-  - RULE-SET,CloudGlobal,☁️CloudGlobal
-
-  - RULE-SET,Amazon,🦁Amazon
-  - RULE-SET,AmazonIP,🦁Amazon
-
-  #Google
-  - RULE-SET,Google,🐱Google
 
   #补充
   - RULE-SET,ChinaMax,DIRECT
