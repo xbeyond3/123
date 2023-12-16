@@ -1,12 +1,9 @@
 mixed-port: 7897
-allow-lan: false
-bind-address: '*'
 mode: rule
 log-level: info
-external-controller: "127.0.0.1:9090"
 
-experimental: # experimental feature
-  ignore-resolve-fail: true # ignore dns resolve fail, default value is true
+experimental:
+  ignore-resolve-fail: true 
 
 dns:
   enable: true
@@ -42,12 +39,6 @@ sniffer:
       override-destination: true
     TLS:
       ports: [443, 8443]
-#    QUIC:
-#      ports: [443, 8443]
-  force-domain:
-#    - +.v2ex.com
-  skip-domain:
-    - Mijia Cloud
 
 proxy-providers:
   sub1: #组名
@@ -57,7 +48,7 @@ proxy-providers:
     interval: 86400 # 自动更新时间
     health-check: # 健康检测，检测失败就不会在自动选择中用该组代理
       enable: true
-      url: http://cp.cloudflare.com/
+      url: http://www.gstatic.com/generate_204
       interval: 300 # 检测间隔
 
 proxy-groups:
