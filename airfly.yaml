@@ -65,7 +65,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 50
+  tolerance: 30
   use:
   - sub1
   filter: "(?i)港|hk|hongkong|JP"
@@ -74,7 +74,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 50
+  tolerance: 30
   use:
   - sub1
   filter: "(?i)美|us|unitedstates|united states"
@@ -83,7 +83,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 50
+  tolerance: 30
   use:
   - sub1
   filter: "(?i)(新|sg|singapore)"
@@ -92,7 +92,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 50
+  tolerance: 30
   use:
   - sub1
   exclude-filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|美|us|unitedstates|united states|新|sg|singapore|韩|kr|korea|英|uk|unitedkingdom|united kingdom"
@@ -123,7 +123,7 @@ proxy-groups:
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 50
+  tolerance: 10
   use:
   - sub1
 
