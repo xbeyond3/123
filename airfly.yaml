@@ -45,7 +45,7 @@ proxy-providers:
     type: http # url订阅的方式
     path: ./profiles/sub1.yml # 配置文件缓存的位置
     url:  https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 86400 # 自动更新时间
+    interval: 3600 # 自动更新时间
     health-check: # 健康检测，检测失败就不会在自动选择中用该组代理
       enable: true
       url: http://www.gstatic.com/generate_204
