@@ -55,8 +55,7 @@ proxy-groups:
 - name: "🛫海外流量"
   type: select
   proxies:
-    - "⚖️ 负载均衡-散列"
-    - "⚖️ 负载均衡-轮询"
+    - "⚖️ 负载均衡"
     - "♻️ AutoTest"
     - DIRECT
 
@@ -97,7 +96,7 @@ proxy-groups:
   - sub1
   exclude-filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|美|us|unitedstates|united states|新|sg|singapore|韩|kr|korea|英|uk|unitedkingdom|united kingdom"
   
-- name: "⚖️ 负载均衡-散列"
+- name: "⚖️ 负载均衡"
   type: load-balance
   strategy: consistent-hashing
   url: https://www.gstatic.com/generate_204
@@ -106,18 +105,6 @@ proxy-groups:
     - "🇭🇰香港 HongKong"
     - "🇺🇸美国 USA"
     - "🇸🇬新加坡 Singapore"
-    - "🗺️其它地区"
-    
-- name: "⚖️ 负载均衡-轮询"
-  type: load-balance
-  strategy: round-robin
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  proxies:
-    - "🇭🇰香港 HongKong"
-    - "🇺🇸美国 USA"
-    - "🇸🇬新加坡 Singapore"
-    - "🗺️其它地区"
     
 - name: "♻️ AutoTest"
   type: url-test
