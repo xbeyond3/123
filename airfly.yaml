@@ -9,7 +9,7 @@ proxy-providers:
   sub1:
     type: http
     path: ./profiles/sub1.yml
-    url:  
+    url:  https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
     interval: 3600
 
 proxy-groups:
