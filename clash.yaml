@@ -198,4 +198,4 @@ rules:
   - RULE-SET,GameDownloadCN,DIRECT,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
   - GEOIP,CN,DIRECT,no-resolve
-  - MATCH,🐟️漏网之鱼
+  - MATCH,🐟️ 漏网之鱼
