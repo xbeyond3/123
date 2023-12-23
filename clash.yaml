@@ -13,7 +13,7 @@ proxy-providers:
   meta:
     type: http
     path: ./profiles/meta.yml
-    url:  
+    url:  https://raw.githubusercontent.com/xbeyond3/123/main/clash.yaml
     interval: 3600
 
 proxy-groups:
