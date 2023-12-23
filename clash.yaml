@@ -10,9 +10,9 @@ experimental:
   ignore-resolve-fail: true 
 
 proxy-providers:
-  sub1:
+  meta:
     type: http
-    path: ./profiles/sub1.yml
+    path: ./profiles/meta.yml
     url:  
     interval: 3600
 
