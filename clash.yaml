@@ -10,11 +10,11 @@ experimental:
   ignore-resolve-fail: true 
 
 proxy-providers:
-  meta:
+  sub1:
     type: http
-    path: ./profiles/meta.yml
+    path: ./profiles/sub1.yml
     url:  https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 3600
+    interval: 86400
 
 proxy-groups:
   - name: 🚀 节点选择
@@ -27,28 +27,8 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 30
-    proxies:
-      - _AA_1
-      - _AA_2
-      - _AA_3
-      - _AA_4
-      - _AA_5
-      - _AA_6
-      - _AA_7
-      - _BB_1
-      - _BB_2
-      - _BB_3
-      - _BB_4
-      - _BB_5
-      - _BB_6
-      - _BB_7
-      - _CC_1
-      - _CC_2
-      - _CC_3
-      - _CC_4
-      - _CC_5
-      - _CC_6
-      - _CC_7
+    use:
+    - sub1
   - name: ⚖️ 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -63,34 +43,26 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 30
-    proxies:
-      - _AA_1
-      - _AA_2
-      - _AA_3
-      - _AA_4
-      - _AA_5
-      - _AA_6
-      - _AA_7
+    use:
+    - sub1
+    filter: "(?i)港|hk|hongkong|AA"
   - name: 🇭🇰香港_BB
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 30
-    proxies:
-      - _BB_1
-      - _BB_2
-      - _BB_3
-      - _BB_4
-      - _BB_5
-      - _BB_6
-      - _BB_7
+    use:
+    - sub1
+    filter: "(?i)港|hk|hongkong|BB"
   - name: 🇭🇰香港_CC
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 30
-    proxies: 
-- name: 🐟️漏网之鱼
+    use:
+    - sub1
+    filter: "(?i)港|hk|hongkongCC"
+- name: 🐟️ 漏网之鱼
   type: select
   proxies:
     - 🚀 节点选择   
@@ -222,4 +194,4 @@ rules:
   - RULE-SET,GameDownloadCN,DIRECT,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
   - GEOIP,CN,DIRECT,no-resolve
-  - MATCH,🐟️漏网之鱼
+  - MATCH,🐟️ 漏网之鱼
