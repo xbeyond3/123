@@ -173,11 +173,11 @@ rules:
   - RULE-SET,Github,🚀 节点选择,no-resolve
   - RULE-SET,OpenAI,🚀 节点选择,no-resolve
   - RULE-SET,Microsoft,🚀 节点选择,no-resolve
-  - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
+    - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
   - RULE-SET,Telegram,🚀 节点选择,no-resolve
   - RULE-SET,Spotify,🚀 节点选择,no-resolve
   - RULE-SET,Bing,🚀 节点选择,no-resolve
-  - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
+ - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
   - RULE-SET,Reject,REJECT,no-resolve
   - RULE-SET,Direct,DIRECT,no-resolve
   - RULE-SET,PT,DIRECT,no-resolve
