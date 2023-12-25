@@ -4,10 +4,10 @@ log-level: info
 
 proxy-providers:
   sub1:
-    type: http
+    type: file
     path: ./profiles/sub1.yml
-    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 86400
+    #url: 
+    #interval: 86400
 
 proxy-groups:
 - name: 🚀 节点选择
