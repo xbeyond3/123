@@ -8,13 +8,18 @@ proxy-providers:
     path: ./profiles/sub1.yml
     #url: 
     #interval: 86400
-
+  sub2:
+    type: file
+    path: ./profiles/sub2.yml
+    #url: 
+    #interval: 86400
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
     - ⚖️ 负载均衡
     - ♻️ 自动选择
+    - sub2
 - name: ♻️ 自动选择
   type: url-test
   url: https://www.gstatic.com/generate_204
