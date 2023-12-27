@@ -71,7 +71,7 @@ rule-providers:
   Reject:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical_No_Resolve.yaml"
     path: ./ruleset/Reject.yaml
     interval: 86400
   Direct:
@@ -87,6 +87,12 @@ rule-providers:
     path: ./ruleset/ChinaMax.yaml
     interval: 86400
 #################################
+DNS: 
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DNS/DNS_No_Resolve.yaml"
+    path: ./ruleset/DNS.yaml
+    interval: 86400
   Google: 
     type: http
     behavior: classical
@@ -126,7 +132,7 @@ rule-providers:
   YouTube:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    url: "https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml"
     path: ./ruleset/YouTube.yaml
     interval: 86400
   Spotify:
@@ -174,20 +180,18 @@ rule-providers:
     interval: 86400
 
 rules:
-  - IP-CIDR,8.8.8.8/32,🚀 节点选择,no-resolve
-  - IP-CIDR,8.8.4.4/32,🚀 节点选择,no-resolve
-  - IP-CIDR,1.1.1.1/32,🚀 节点选择,no-resolve
-  - IP-CIDR,1.0.0.1/32,🚀 节点选择,no-resolve
-  - RULE-SET,YouTube,🚀 节点选择,no-resolve
-  - RULE-SET,Google,🚀 节点选择,no-resolve
-  - RULE-SET,Github,🚀 节点选择,no-resolve
-  - RULE-SET,OpenAI,🚀 节点选择,no-resolve
-  - RULE-SET,Microsoft,🚀 节点选择,no-resolve
-  - RULE-SET,Telegram,🚀 节点选择,no-resolve
-  - RULE-SET,Spotify,🚀 节点选择,no-resolve
-  - RULE-SET,Bing,🚀 节点选择,no-resolve
-  - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
-  - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
+  - RULE-SET,Reject,REJECT
+  - RULE-SET,DNS,🚀 节点选择
+  # - RULE-SET,YouTube,🚀 节点选择
+  # - RULE-SET,Google,🚀 节点选择,no-resolve
+  # - RULE-SET,Github,🚀 节点选择,no-resolve
+  # - RULE-SET,OpenAI,🚀 节点选择,no-resolve
+  # - RULE-SET,Microsoft,🚀 节点选择,no-resolve
+  # - RULE-SET,Telegram,🚀 节点选择,no-resolve
+  # - RULE-SET,Spotify,🚀 节点选择,no-resolve
+  # - RULE-SET,Bing,🚀 节点选择,no-resolve
+  # - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
+  # - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
   - RULE-SET,Direct,DIRECT,no-resolve
   - RULE-SET,PT,DIRECT,no-resolve
   - RULE-SET,Game,DIRECT,no-resolve
@@ -195,17 +199,4 @@ rules:
   - RULE-SET,Global,🚀 节点选择,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
   - GEOIP,CN,DIRECT,no-resolve
-  - GEOIP,US,🚀 节点选择,no-resolve
-  - GEOIP,JP,🚀 节点选择,no-resolve
-  - GEOIP,KR,🚀 节点选择,no-resolve 
-  - GEOIP,AU,🚀 节点选择,no-resolve
-  - GEOIP,CA,🚀 节点选择,no-resolve
-  - GEOIP,GB,🚀 节点选择,no-resolve
-  - GEOIP,DE,🚀 节点选择,no-resolve
-  - GEOIP,FR,🚀 节点选择,no-resolve
-  - GEOIP,HK,🚀 节点选择,no-resolve
-  - GEOIP,TW,🚀 节点选择,no-resolve
-  - GEOIP,SG,🚀 节点选择,no-resolve
-  - GEOIP,IN,🚀 节点选择,no-resolve
-  - GEOIP,RU,🚀 节点选择,no-resolve
   - MATCH,🐟️ 漏网之鱼
