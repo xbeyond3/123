@@ -19,7 +19,8 @@ proxy-groups:
   proxies:
     - ⚖️ 负载均衡
     - ♻️ 自动选择
-    - sub2
+  use:
+  - sub2
 - name: ♻️ 自动选择
   type: url-test
   url: https://www.gstatic.com/generate_204
