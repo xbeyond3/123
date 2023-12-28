@@ -191,7 +191,7 @@ rules:
   # - RULE-SET,Spotify,🚀 节点选择,no-resolve
   # - RULE-SET,Bing,🚀 节点选择,no-resolve
   # - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
-   - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
+  - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
   - RULE-SET,Direct,DIRECT,no-resolve
   - RULE-SET,PT,DIRECT,no-resolve
   - RULE-SET,Game,DIRECT,no-resolve
