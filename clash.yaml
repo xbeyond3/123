@@ -8,11 +8,17 @@ proxy-providers:
     path: ./profiles/sub1.yaml
     #url: 
     #interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
   sub2:
     type: file
     path: ./profiles/sub2.yaml
     #url: 
     #interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
 proxy-groups:
 - name: 🚀 节点选择
   type: select
