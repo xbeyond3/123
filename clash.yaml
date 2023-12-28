@@ -23,7 +23,7 @@ proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
-    - ⚖️ 负载均衡
+    - ☸ 负载均衡
     - ♻️ 自动选择
     - 👆 手动选择
 - name: 👆 手动选择
@@ -37,7 +37,7 @@ proxy-groups:
   tolerance: 30
   use:
   - sub1
-- name: ⚖️ 负载均衡
+- name: ☸ 负载均衡
   type: load-balance
   strategy: consistent-hashing
   url: https://www.gstatic.com/generate_204
