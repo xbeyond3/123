@@ -199,9 +199,9 @@ rules:
   # - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
   - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
   - RULE-SET,Direct,DIRECT,no-resolve
-  - RULE-SET,PT,DIRECT,no-resolve
-  - RULE-SET,Game,DIRECT,no-resolve
-  - RULE-SET,GameDownloadCN,DIRECT,no-resolve
+  # - RULE-SET,PT,DIRECT,no-resolve
+  # - RULE-SET,Game,DIRECT,no-resolve
+  # - RULE-SET,GameDownloadCN,DIRECT,no-resolve
   - RULE-SET,Global,🚀 节点选择,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
   - MATCH,🐟️ 漏网之鱼
