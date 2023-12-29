@@ -44,6 +44,7 @@ proxy-groups:
   tolerance: 30
   use:
   - sub1
+  - sub2
 - name: 🌸 负载均衡
   type: load-balance
   strategy: consistent-hashing
@@ -53,6 +54,7 @@ proxy-groups:
     - 🇭🇰香港_AA
     - 🇭🇰香港_BB
     - 🇭🇰香港_CC
+    - 👆 手动选择
 - name: 🇭🇰香港_AA
   type: url-test
   url: https://www.gstatic.com/generate_204
