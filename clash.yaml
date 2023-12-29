@@ -215,22 +215,19 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,Reject,REJECT,no-resolve
   - RULE-SET,DNS,🚀 节点选择,no-resolve
-  # - RULE-SET,YouTube,🚀 节点选择,no-resolve
-  # - RULE-SET,Google,🚀 节点选择,no-resolve
-  # - RULE-SET,Github,🚀 节点选择,no-resolve
-  # - RULE-SET,OpenAI,🚀 节点选择,no-resolve
-  # - RULE-SET,Microsoft,🚀 节点选择,no-resolve
-  # - RULE-SET,Telegram,🚀 节点选择,no-resolve
-  # - RULE-SET,Spotify,🚀 节点选择,no-resolve
-  # - RULE-SET,Bing,🚀 节点选择,no-resolve
-  # - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
+  - RULE-SET,YouTube,🚀 节点选择,no-resolve
+  - RULE-SET,Google,🚀 节点选择,no-resolve
+  - RULE-SET,Github,🚀 节点选择,no-resolve
+  - RULE-SET,OpenAI,🚀 节点选择,no-resolve
+  - RULE-SET,Microsoft,🚀 节点选择,no-resolve
+  - RULE-SET,Telegram,🚀 节点选择,no-resolve
+  - RULE-SET,Spotify,🚀 节点选择,no-resolve
+  - RULE-SET,Bing,🚀 节点选择,no-resolve
+  - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
   - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
   - RULE-SET,Direct,DIRECT,no-resolve
-  # - RULE-SET,PT,DIRECT,no-resolve
-  # - RULE-SET,Game,DIRECT,no-resolve
-  # - RULE-SET,GameDownloadCN,DIRECT,no-resolve
+  - RULE-SET,PT,DIRECT,no-resolve
   - RULE-SET,Global,🚀 节点选择,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
   - MATCH,🐟️ 漏网之鱼
