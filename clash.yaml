@@ -9,22 +9,6 @@ profile:
   store-selected: true
   store-fake-ip: true
 
-geodata-mode: true
-geox-url:
-  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
-  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-geo-auto-update: true
-geo-update-interval: 24
-
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-  - any:53
-  auto-route: true
-  auto-detect-interface: true
-  strict-route: true
-
 proxy-providers:
   sub1:
     type: file
