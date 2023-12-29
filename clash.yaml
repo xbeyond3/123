@@ -1,7 +1,6 @@
 mode: rule
 unified-delay: false
 tcp-concurrent: true
-keep-alive-interval: 15
 find-process-mode: strict
 global-client-fingerprint: chrome
 experimental:
@@ -22,7 +21,6 @@ tun:
   stack: mixed
   dns-hijack:
   - any:53
-  - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
   strict-route: true
@@ -33,7 +31,6 @@ proxy-providers:
     path: ./profiles/sub1.yaml
     #url: 
     #interval: 86400
-    # override:
     override:
       skip-cert-verify: true
       udp: true
