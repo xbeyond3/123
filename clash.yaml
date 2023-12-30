@@ -54,7 +54,6 @@ proxy-groups:
     - 🇭🇰香港_AA
     - 🇭🇰香港_BB
     - 🇭🇰香港_CC
-    - 👆 手动选择
 - name: 🇭🇰香港_AA
   type: url-test
   url: https://www.gstatic.com/generate_204
