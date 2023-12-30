@@ -44,6 +44,7 @@ proxy-groups:
   tolerance: 30
   use:
   - sub1
+  - sub2
 - name: 🌸 负载均衡
   type: load-balance
   strategy: consistent-hashing
