@@ -197,7 +197,6 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,DNS,🚀 节点选择,no-resolve
   - RULE-SET,YouTube,🚀 节点选择,no-resolve
   - RULE-SET,Google,🚀 节点选择,no-resolve
   - RULE-SET,Github,🚀 节点选择,no-resolve
