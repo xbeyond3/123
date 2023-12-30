@@ -212,6 +212,4 @@ rules:
   - RULE-SET,PT,DIRECT,no-resolve
   - RULE-SET,Global,🚀 节点选择,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
-  - GEOSITE,CN,DIRECT
-  - GEOIP,CN,DIRECT,no-resolve
   - MATCH,🐟️ 漏网之鱼
