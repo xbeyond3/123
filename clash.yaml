@@ -42,6 +42,7 @@ proxy-groups:
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 30
+  lazy: true
   use:
   - sub1
   - sub2
