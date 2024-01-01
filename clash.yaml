@@ -26,20 +26,10 @@ proxy-providers:
     override:
       skip-cert-verify: true
       udp: true
-  sub3:
+  trojan:
     type: http
-    path: ./profiles/sub3.yml
+    path: ./profiles/trojan.yml
     url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 14400
-  sub4:
-    type: http
-    path: ./profiles/sub4.yml
-    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/ssr
-    interval: 14400
-  sub5:
-    type: http
-    path: ./profiles/sub5.yml
-    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/vmess
     interval: 14400
     
 proxy-groups:
@@ -50,8 +40,6 @@ proxy-groups:
     - ♻️ 自动选择
     - 👆 手动选择
     - 🌏 trojan
-    - 🌏 ssr
-    - 🌏 vmess
     
 - name: 👆 手动选择
   type: select
@@ -72,20 +60,6 @@ proxy-groups:
   tolerance: 30
   use:
   - sub3
-- name: 🌏 ssr
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 30
-  use:
-  - sub4
-- name: 🌏 vmess
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 30
-  use:
-  - sub5
 
 - name: 🌸 负载均衡
   type: load-balance
