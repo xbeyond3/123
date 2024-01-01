@@ -59,7 +59,7 @@ proxy-groups:
   interval: 300
   tolerance: 30
   use:
-  - sub3
+  - trojan
 
 - name: 🌸 负载均衡
   type: load-balance
