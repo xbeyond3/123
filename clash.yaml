@@ -12,7 +12,7 @@ profile:
 proxy-providers:
   sub1:
     type: file
-    path: ./profiles/sub1.yaml
+    path: ./profiles/sub1.yml
     #url: 
     #interval: 86400
     override:
@@ -20,7 +20,7 @@ proxy-providers:
       udp: true
   sub2:
     type: file
-    path: ./profiles/sub2.yaml
+    path: ./profiles/sub2.yml
     #url: 
     #interval: 86400
     override:
@@ -28,7 +28,7 @@ proxy-providers:
       udp: true
   sub3:
     type: http
-    path: ./profiles/sub3.yaml
+    path: ./profiles/sub3.yml
     url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
     interval: 14400
     # override:
