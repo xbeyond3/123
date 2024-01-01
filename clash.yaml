@@ -26,6 +26,14 @@ proxy-providers:
     override:
       skip-cert-verify: true
       udp: true
+  sub3:
+    type: file
+    path: ./profiles/sub3.yaml
+    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
+    interval: 14400
+    # override:
+    #   skip-cert-verify: true
+    #   udp: true
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -33,6 +41,7 @@ proxy-groups:
     - 🌸 负载均衡
     - ♻️ 自动选择
     - 👆 手动选择
+    - 🌏 github
 - name: 👆 手动选择
   type: select
   use:
@@ -45,6 +54,13 @@ proxy-groups:
   use:
   - sub1
   - sub2
+- name: 🌏 github
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 30
+  use:
+  - sub3
 - name: 🌸 负载均衡
   type: load-balance
   strategy: consistent-hashing
