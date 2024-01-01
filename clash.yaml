@@ -54,7 +54,7 @@ proxy-groups:
   - sub1
   - sub2
 - name: 🌏 trojan
-  type: url-test
+  type: select
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 30
