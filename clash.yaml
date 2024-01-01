@@ -27,7 +27,7 @@ proxy-providers:
       skip-cert-verify: true
       udp: true
   sub3:
-    type: file
+    type: http
     path: ./profiles/sub3.yaml
     url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
     interval: 14400
