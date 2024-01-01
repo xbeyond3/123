@@ -30,7 +30,7 @@ proxy-providers:
     type: http
     path: ./profiles/trojan.yml
     url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 14400
+    interval: 3600
     
 proxy-groups:
 - name: 🚀 节点选择
