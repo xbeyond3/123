@@ -104,7 +104,6 @@ proxy-groups:
     tolerance: 50
     use:
       - ym
-
     # filter: HK(?!.*1[0-9]).*[1-9]|HK$|Channel
     # hidden: true
 rules:
@@ -130,7 +129,6 @@ rules:
   - RULE-SET,Spotify,🚀 节点选择,no-resolve
   - RULE-SET,Bing,🚀 节点选择,no-resolve
   - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
-  - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
   - RULE-SET,Global,🚀 节点选择,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
   - MATCH,🚀 节点选择
