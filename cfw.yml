@@ -1,0 +1,360 @@
+mode: rule
+ipv6: true
+log-level: info
+allow-lan: false
+mixed-port: 7897
+bind-address: "*"
+unified-delay: false
+skip-auth-prefixes:
+  - 127.0.0.1/8
+  - ::1/128
+tcp-concurrent: true
+keep-alive-interval: 15
+external-controller: 127.0.0.1:53345
+geodata-mode: false
+geox-url:
+  geoip: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+  geosite: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb
+find-process-mode: strict
+global-client-fingerprint: chrome
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff:
+    TLS:
+      ports:
+        - 443
+        - 8443
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+  force-domain: []
+tun:
+  enable: false
+  stack: system
+  dns-hijack:
+    - any:53
+  strict-route: true
+  auto-route: true
+  auto-detect-interface: true
+dns:
+  enable: true
+  prefer-h3: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:53
+  use-hosts: false
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - "*.msftncsi.com"
+    - "*.msftconnecttest.com"
+  nameserver:
+    - system
+proxy-providers:
+  cm:
+    type: http
+    path: ./profiles/cmliu.yaml
+    url: https://v1.mk/ekSNlsu
+    interval: 14400
+  ym:
+    type: http
+    path: ./profiles/ym.yaml
+    url: https://tt.vg/aymRi
+    interval: 14400
+    # override:
+    #   skip-cert-verify: true
+    #   udp: true
+      
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 🌸 负载均衡
+      - ♻️ cmliu
+      - ♻️ ymyu
+  - name: 🌸 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.apple.com/library/test/success.html
+    interval: 300
+    tolerance: 50
+    proxies:
+      - ♻️ cmliu
+      - ♻️ ymyu
+  - name: ♻️ cmliu
+    type: url-test
+    url: https://www.apple.com/library/test/success.html
+    interval: 300
+    tolerance: 50
+    use:
+      - cm
+    filter: "(?i)港|HK"
+  - name: ♻️ ymyu
+    type: url-test
+    url: https://www.apple.com/library/test/success.html
+    interval: 300
+    tolerance: 50
+    use:
+      - ym
+
+    # filter: HK(?!.*1[0-9]).*[1-9]|HK$|Channel
+    # hidden: true
+rules:
+  - DOMAIN-KEYWORD,moss.best,DIRECT
+  - DOMAIN-KEYWORD,btnull,DIRECT
+  - DOMAIN-KEYWORD,vip,DIRECT
+  - DOMAIN-KEYWORD,oaifree,DIRECT
+  - PROCESS-NAME,svchost.exe,DIRECT
+  - PROCESS-NAME,svchost.exe,DIRECT
+  - PROCESS-NAME,AdGuardHome.exe,DIRECT
+  - PROCESS-NAME,HipsDaemon.exe,DIRECT
+  - PROCESS-NAME,Microsoft365 E5 Renew Plus.exe,DIRECT
+  - DOMAIN-KEYWORD,naivetab,DIRECT
+  - DOMAIN-KEYWORD,huya,DIRECT
+  - RULE-SET,Reject,REJECT,no-resolve
+  - RULE-SET,Direct,DIRECT,no-resolve
+  - RULE-SET,YouTube,🚀 节点选择,no-resolve
+  - RULE-SET,Google,🚀 节点选择,no-resolve
+  - RULE-SET,Github,🚀 节点选择,no-resolve
+  - RULE-SET,OpenAI,🚀 节点选择,no-resolve
+  - RULE-SET,Microsoft,🚀 节点选择,no-resolve
+  - RULE-SET,Telegram,🚀 节点选择,no-resolve
+  - RULE-SET,Spotify,🚀 节点选择,no-resolve
+  - RULE-SET,Bing,🚀 节点选择,no-resolve
+  - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
+  - RULE-SET,CloudGlobal,🚀 节点选择,no-resolve
+  - RULE-SET,Global,🚀 节点选择,no-resolve
+  - RULE-SET,ChinaMax,DIRECT,no-resolve
+  - MATCH,🚀 节点选择
+rule-providers:
+  Reject:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml
+    path: ./ruleset/Reject.yaml
+    interval: 86400
+  Direct:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
+    path: ./ruleset/Direct.yaml
+    interval: 86400
+  ChinaMax:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
+    path: ./ruleset/ChinaMax.yaml
+    interval: 86400
+  Google:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
+    path: ./ruleset/Google.yaml
+    interval: 86400
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
+  Bing:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml
+    path: ./ruleset/Bing.yaml
+    interval: 86400
+  OpenAI:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./ruleset/OpenAI.yaml
+    interval: 86400
+  Github:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
+    path: ./ruleset/Github.yaml
+    interval: 86400
+  CloudGlobal:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloud/CloudGlobal/CloudGlobal_Classical.yaml
+    path: ./ruleset/CloudGlobal.yaml
+    interval: 86400
+  YouTube:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml
+    path: ./ruleset/YouTube.yaml
+    interval: 86400
+  Spotify:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
+    path: ./ruleset/Spotify.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
+    path: ./ruleset/Telegram.yaml
+    interval: 86400
+  Cloudflare:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflare/Cloudflare.yaml
+    path: ./ruleset/Cloudflare.yaml
+    interval: 86400
+  Global:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Classical.yaml
+    path: ./ruleset/Global.yaml
+    interval: 86400
+  Game:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml
+    path: ./ruleset/Game.yaml
+    interval: 86400
+  GameDownloadCN:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml
+    path: ./ruleset/GameDownloadCN.yaml
+    interval: 86400
+  PT:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    path: ./ruleset/PT.yaml
+    interval: 86400
+proxies:
+  - name: 🇭🇰_1
+    type: vless
+    server: 104.18.202.107
+    port: 8080
+    uuid: 2077626a-f5ef-446b-82c3-10b3e3fdf0f0
+    tls: false
+    servername: bb.120.cloudns.org
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.120.cloudns.org
+  - name: 🇭🇰_2
+    type: vless
+    server: 104.16.42.119
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: 🇭🇰_4
+    type: vless
+    server: 104.16.45.75
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: 🇭🇰_5
+    type: vless
+    server: 104.16.34.51
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: 🇭🇰_6
+    type: vless
+    server: 104.16.43.252
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: 🇭🇰_7
+    type: vless
+    server: 104.18.90.86
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: 🇭🇰_8
+    type: vless
+    server: 104.19.46.145
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: 🇭🇰_9
+    type: vless
+    server: 104.16.249.251
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: cloudflare.cfgo.cc
+    type: vless
+    server: cloudflare.cfgo.cc
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
+  - name: bestcf.wcccc.fun
+    type: vless
+    server: bestcf.wcccc.fun
+    port: 2096
+    uuid: 723f77d2-64ba-4335-8148-57bcd1db0e0e
+    tls: true
+    servername: bb.991210.xyz
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        host: bb.991210.xyz
