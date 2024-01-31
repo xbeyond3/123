@@ -81,8 +81,9 @@ proxy-providers:
 proxy-groups:
   - name: 🚀 节点选择
     type: select
-    proxies:
+    use:
       - tr
+    proxies:
       - 🌸 负载均衡
       - ♻️ cmliu
       - ♻️ ymyu
