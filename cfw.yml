@@ -69,14 +69,20 @@ proxy-providers:
     path: ./profiles/ym.yaml
     url: https://tt.vg/aymRi
     interval: 14400
-    # override:
-    #   skip-cert-verify: true
-    #   udp: true
-      
+    override:
+      skip-cert-verify: true
+      udp: true
+  tr:
+    type: http
+    path: ./profiles/tr.yaml
+    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
+    interval: 14400
+
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
+      - tr
       - 🌸 负载均衡
       - ♻️ cmliu
       - ♻️ ymyu
