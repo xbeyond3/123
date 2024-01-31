@@ -83,10 +83,10 @@ proxy-groups:
     type: select
     use:
       - tr
-    proxies:
-      - 🌸 负载均衡
-      - ♻️ cmliu
-      - ♻️ ymyu
+    # proxies:
+    #   - 🌸 负载均衡
+    #   - ♻️ cmliu
+    #   - ♻️ ymyu
   - name: 🌸 负载均衡
     type: load-balance
     strategy: consistent-hashing
