@@ -72,21 +72,13 @@ proxy-providers:
     override:
       skip-cert-verify: true
       udp: true
-  tr:
-    type: http
-    path: ./profiles/tr.yaml
-    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 14400
-
 proxy-groups:
   - name: 🚀 节点选择
     type: select
-    use:
-      - tr
-    # proxies:
-    #   - 🌸 负载均衡
-    #   - ♻️ cmliu
-    #   - ♻️ ymyu
+    proxies:
+      - 🌸 负载均衡
+      - ♻️ cmliu
+      - ♻️ ymyu
   - name: 🌸 负载均衡
     type: load-balance
     strategy: consistent-hashing
