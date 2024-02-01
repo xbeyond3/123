@@ -81,7 +81,7 @@ proxy-groups:
       - ♻️ ymyu
   - name: 🌸 负载均衡
     type: load-balance
-    strategy: consistent-hashing
+    strategy: round-robin
     url: https://www.apple.com/library/test/success.html
     interval: 300
     tolerance: 50
