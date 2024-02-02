@@ -90,7 +90,7 @@ proxy-groups:
     tolerance: 50
     proxies:
       - ♻️ cmliu
-      - ♻️ ymyu
+      - ⚖️ ymyu
   - name: ♻️ cmliu
     type: url-test
     url: https://www.apple.com/library/test/success.html
