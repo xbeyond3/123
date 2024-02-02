@@ -81,7 +81,7 @@ proxy-groups:
     proxies:
       - 🌸 负载均衡
       - ♻️ cmliu
-      - ♻️ ymyu
+      - ⚖️ ymyu
   - name: 🌸 负载均衡
     type: load-balance
     strategy: round-robin
@@ -99,8 +99,9 @@ proxy-groups:
     use:
       - cm
     filter: "(?i)港|HK"
-  - name: ♻️ ymyu
-    type: url-test
+  - name: ⚖️ ymyu
+    type: load-balance
+    strategy: round-robin
     url: https://www.apple.com/library/test/success.html
     interval: 300
     tolerance: 50
