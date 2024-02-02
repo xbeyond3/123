@@ -109,11 +109,8 @@ proxy-groups:
     # filter: HK(?!.*1[0-9]).*[1-9]|HK$|Channel
     # hidden: true
 rules:
-  - DOMAIN-KEYWORD,moss.best,DIRECT
   - DOMAIN-KEYWORD,btnull,DIRECT
   - DOMAIN-KEYWORD,vip,DIRECT
-  - DOMAIN-KEYWORD,oaifree,DIRECT
-  - PROCESS-NAME,svchost.exe,DIRECT
   - PROCESS-NAME,svchost.exe,DIRECT
   - PROCESS-NAME,AdGuardHome.exe,DIRECT
   - PROCESS-NAME,HipsDaemon.exe,DIRECT
