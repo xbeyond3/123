@@ -56,6 +56,9 @@ dns:
     - +.local
     - "*.msftncsi.com"
     - "*.msftconnecttest.com"
+    - static.adtidy.org
+    - adguardteam.github.io
+    - anti-ad.net
   nameserver:
     - system
 proxy-providers:
