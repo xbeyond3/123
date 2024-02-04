@@ -61,7 +61,7 @@ proxy-providers:
   cm:
     type: http
     path: ./profiles/cmliu.yaml
-    url: https://d1.mk/cDOUOCM
+    url: https://d1.mk/TgzpQEC
   # ym:
   #   type: http
   #   path: ./profiles/ym.yaml
