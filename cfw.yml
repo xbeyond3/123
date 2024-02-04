@@ -62,7 +62,6 @@ proxy-providers:
     type: http
     path: ./profiles/cmliu.yaml
     url: https://api.v1.mk/sub?target=clash&url=https%3A%2F%2F200848a7-a9be-4546-bcc4-79b9bb10304a.cmliucdn.tk%2Fsub%3Fhost%3Dp.200.dedyn.io%26uuid%3Df3d19529-593d-4b88-80da-7a78f0ab5cdd&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&emoji=true&list=false&xudp=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&new_name=true
-    interval: 86400
   # ym:
   #   type: http
   #   path: ./profiles/ym.yaml
