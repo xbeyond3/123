@@ -62,31 +62,28 @@ proxy-providers:
     type: http
     path: ./profiles/cmliu.yaml
     url: https://v1.mk/ekSNlsu
-    interval: 14400
-  ym:
-    type: http
-    path: ./profiles/ym.yaml
-    url: https://tt.vg/aymRi
-    interval: 14400
-    override:
-      skip-cert-verify: true
-      udp: true
+    interval: 86400
+  # ym:
+  #   type: http
+  #   path: ./profiles/ym.yaml
+  #   url: https://tt.vg/aymRi
+  #   interval: 14400
+  #   override:
+  #     skip-cert-verify: true
+  #     udp: true
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
-      - 🌸 负载均衡
       - ♻️ cmliu
-      - ⚖️ ymyu
-  - name: 🌸 负载均衡
-    type: load-balance
-    strategy: round-robin
-    url: https://www.apple.com/library/test/success.html
-    interval: 300
-    tolerance: 50
-    proxies:
-      - ♻️ cmliu
-      - ⚖️ ymyu
+  # - name: 🌸 负载均衡
+  #   type: load-balance
+  #   strategy: round-robin
+  #   url: https://www.apple.com/library/test/success.html
+  #   interval: 300
+  #   tolerance: 50
+  #   proxies:
+  #     - ♻️ cmliu
   - name: ♻️ cmliu
     type: url-test
     url: https://www.apple.com/library/test/success.html
@@ -95,14 +92,14 @@ proxy-groups:
     use:
       - cm
     filter: "(?i)港|HK"
-  - name: ⚖️ ymyu
-    type: load-balance
-    strategy: round-robin
-    url: https://www.apple.com/library/test/success.html
-    interval: 300
-    tolerance: 50
-    use:
-      - ym
+  # - name: ⚖️ ymyu
+  #   type: load-balance
+  #   strategy: round-robin
+  #   url: https://www.apple.com/library/test/success.html
+  #   interval: 300
+  #   tolerance: 50
+  #   use:
+  #     - ym
     # filter: HK(?!.*1[0-9]).*[1-9]|HK$|Channel
     # hidden: true
 rules:
