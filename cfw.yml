@@ -61,7 +61,7 @@ proxy-providers:
   cm:
     type: http
     path: ./profiles/cmliu.yaml
-    url: https://v1.mk/ekSNlsu
+    url: https://200848a7-a9be-4546-bcc4-79b9bb10304a.cmliucdn.tk/sub?host=p.200.dedyn.io&uuid=f3d19529-593d-4b88-80da-7a78f0ab5cdd
     interval: 86400
   # ym:
   #   type: http
