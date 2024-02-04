@@ -61,7 +61,7 @@ proxy-providers:
   cm:
     type: http
     path: ./profiles/cmliu.yaml
-    url: https://cmliu.xbeyond321.workers.dev/f3d19529-593d-4b88-80da-7a78f0ab5cdd
+    url: https://d1.mk/cDOUOCM
   # ym:
   #   type: http
   #   path: ./profiles/ym.yaml
