@@ -90,7 +90,7 @@ proxy-groups:
     tolerance: 50
     use:
       - cm
-    filter: "(?i)港|HK"
+    filter: "(?i)港|jp"
   # - name: ⚖️ ymyu
   #   type: load-balance
   #   strategy: round-robin
