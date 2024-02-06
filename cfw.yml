@@ -62,19 +62,18 @@ proxy-providers:
     type: http
     path: ./profiles/cmliu.yaml
     url: https://d1.mk/TgzpQEC
-  # ym:
-  #   type: http
-  #   path: ./profiles/ym.yaml
-  #   url: https://tt.vg/aymRi
-  #   interval: 14400
-  #   override:
-  #     skip-cert-verify: true
-  #     udp: true
+    interval: 14400
+  ym:
+    type: http
+    path: ./profiles/ym.yaml
+    url: https://raw.githubusercontent.com/mengxianbo/clash.meta.sub/main/clash-meta.yaml
+    interval: 14400
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ cmliu
+      - ♻️ ymyu
   # - name: 🌸 负载均衡
   #   type: load-balance
   #   strategy: round-robin
@@ -91,6 +90,13 @@ proxy-groups:
     use:
       - cm
     filter: "(?i)港|hk"
+  - name: ♻️ ymyu
+    type: url-test
+    url: https://www.apple.com/library/test/success.html
+    interval: 300
+    tolerance: 50
+    use:
+      - ym
   # - name: ⚖️ ymyu
   #   type: load-balance
   #   strategy: round-robin
