@@ -66,7 +66,7 @@ proxy-providers:
   ym:
     type: http
     path: ./profiles/ym.yaml
-    url: https://raw.githubusercontent.com/mengxianbo/clash.meta.sub/main/clash-meta.yaml
+    url: https://v1.mk/DDUxtE3
     interval: 14400
 proxy-groups:
   - name: 🚀 节点选择
