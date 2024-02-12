@@ -73,7 +73,6 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ cmliu
-
   - name: ♻️ cmliu
     type: url-test
     url: https://www.apple.com/library/test/success.html
@@ -82,7 +81,6 @@ proxy-groups:
     use:
       - cm
     filter: "(?i)港|hk"
-
   # - name: ⚖️ ymyu
   #   type: load-balance
   #   strategy: round-robin
@@ -91,12 +89,11 @@ proxy-groups:
   #   tolerance: 50
   #   use:
   #     - ym
-    # hidden: true
-  - name: 🐟️ 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择   
-      - DIRECT
+  # - name: 🐟️ 漏网之鱼
+  #   type: select
+  #   proxies:
+  #     - 🚀 节点选择   
+  #     - DIRECT
 
 rules:
   - DOMAIN-KEYWORD,btnull,DIRECT
@@ -120,7 +117,7 @@ rules:
   - RULE-SET,Cloudflare,🚀 节点选择,no-resolve
   - RULE-SET,Global,🚀 节点选择,no-resolve
   - RULE-SET,ChinaMax,DIRECT,no-resolve
-  - MATCH,🐟️ 漏网之鱼
+  - MATCH,🚀 节点选择
 rule-providers:
   Reject:
     type: http
