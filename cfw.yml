@@ -61,7 +61,7 @@ proxy-providers:
   cm:
     type: http
     path: ./profiles/cmliu.yaml
-    url: https://a.991210.xyz/f3d19529-593d-4b88-80da-7a78f0ab5cdd
+    url: https://200848a7-a9be-4546-bcc4-79b9bb10304a.cmliucdn.tk/sub?host=a.991210.xyz&uuid=f3d19529-593d-4b88-80da-7a78f0ab5cdd
     interval: 14400
   # ym:
   #   type: http
