@@ -8,7 +8,7 @@ unified-delay: false
 tcp-concurrent: true
 keep-alive-interval: 15
 external-controller: 127.0.0.1:53345
-geodata-mode: true
+geodata-mode: false
 geox-url:
   geoip: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
   geosite: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
