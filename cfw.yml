@@ -56,7 +56,7 @@ dns:
     - adguardteam.github.io
     - anti-ad.net
   nameserver:
-    - 223.5.5.5
+    - system
 proxy-providers:
   cm:
     type: http
@@ -80,7 +80,7 @@ proxy-groups:
     tolerance: 50
     use:
       - cm
-   # filter: "(?i)港|hk"
+    filter: "(?i)港|hk"
   # - name: ⚖️ ymyu
   #   type: load-balance
   #   strategy: round-robin
