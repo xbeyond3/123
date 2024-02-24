@@ -93,7 +93,6 @@ rules:
   - RULE-SET,YouTube,🚀 节点选择,no-resolve
   - RULE-SET,Google,🚀 节点选择,no-resolve
   - RULE-SET,Github,🚀 节点选择,no-resolve
-  - RULE-SET,OpenAI,🚀 节点选择,no-resolve
   - RULE-SET,Microsoft,🚀 节点选择,no-resolve
   - RULE-SET,Telegram,🚀 节点选择,no-resolve
   - RULE-SET,Spotify,🚀 节点选择,no-resolve
