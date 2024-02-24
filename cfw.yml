@@ -80,6 +80,7 @@ proxy-groups:
       - DIRECT
 
 rules:
+  - DOMAIN-KEYWORD,toutiao,REJECT
   - DOMAIN-KEYWORD,btnull,DIRECT
   - DOMAIN-KEYWORD,vip,DIRECT
   - PROCESS-NAME,svchost.exe,DIRECT
