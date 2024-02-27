@@ -1,21 +1,3 @@
-mode: rule
-mixed-port: 7897
-external-controller: 127.0.0.1:53345
-dns:
-  enable: true
-  prefer-h3: true
-  ipv6: false
-  enhanced-mode: fake-ip
-  listen: 0.0.0.0:53
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-    - +.lan
-    - +.local
-    - "*.msftncsi.com"
-    - "*.msftconnecttest.com"
-  nameserver:
-    - 223.6.6.6
-    - 119.29.29.29
 proxy-providers:
   cm:
     type: http
