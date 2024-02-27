@@ -51,7 +51,8 @@ dns:
     - adguardteam.github.io
     - anti-ad.net
   nameserver:
-    - system
+    - 223.6.6.6
+    - 119.29.29.29
 proxy-providers:
   cm:
     type: http
