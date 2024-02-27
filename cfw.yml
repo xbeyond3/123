@@ -47,9 +47,6 @@ dns:
     - +.local
     - "*.msftncsi.com"
     - "*.msftconnecttest.com"
-    - static.adtidy.org
-    - adguardteam.github.io
-    - anti-ad.net
   nameserver:
     - 223.6.6.6
     - 119.29.29.29
@@ -72,7 +69,7 @@ proxy-groups:
     tolerance: 50
     use:
       - cm
-    # filter: "(?i)港|hk"
+    filter: "(?i)港|hk"
 
   - name: 🐟️ 漏网之鱼
     type: select
@@ -95,7 +92,6 @@ rules:
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
   - RULE-SET,Direct,DIRECT
-  - RULE-SET,Reject,REJECT
   - RULE-SET,YouTube,🚀 节点选择,no-resolve
   - RULE-SET,Google,🚀 节点选择,no-resolve
   - RULE-SET,Github,🚀 节点选择,no-resolve
