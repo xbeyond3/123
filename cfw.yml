@@ -92,8 +92,8 @@ rules:
   - PROCESS-NAME,Microsoft365 E5 Renew Plus.exe,DIRECT
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
-  - RULE-SET,Reject,REJECT,no-resolve
-  - RULE-SET,Direct,DIRECT,no-resolve
+  - RULE-SET,Reject,REJECT
+  - RULE-SET,Direct,DIRECT
   - RULE-SET,YouTube,🚀 节点选择,no-resolve
   - RULE-SET,Google,🚀 节点选择,no-resolve
   - RULE-SET,Github,🚀 节点选择,no-resolve
