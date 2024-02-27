@@ -80,10 +80,6 @@ proxy-groups:
       - DIRECT
 
 rules:
-  - DOMAIN-SUFFIX,coolapk.com,DIRECT
-  - DOMAIN-SUFFIX,coolapkmarket.com,DIRECT
-  - DOMAIN-SUFFIX,coolapkmarket.net,DIRECT
-  - DOMAIN-KEYWORD,toutiao,REJECT
   - DOMAIN-KEYWORD,btnull,DIRECT
   - DOMAIN-KEYWORD,vip,DIRECT
   - PROCESS-NAME,svchost.exe,DIRECT
@@ -92,7 +88,6 @@ rules:
   - PROCESS-NAME,Microsoft365 E5 Renew Plus.exe,DIRECT
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
-  - RULE-SET,Reject,REJECT
   - RULE-SET,Direct,DIRECT
   - RULE-SET,YouTube,🚀 节点选择,no-resolve
   - RULE-SET,Google,🚀 节点选择,no-resolve
