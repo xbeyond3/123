@@ -1,46 +1,12 @@
 mode: rule
-ipv6: true
-log-level: info
-allow-lan: false
 mixed-port: 7897
-bind-address: "*"
-unified-delay: false
-tcp-concurrent: true
-keep-alive-interval: 15
 external-controller: 127.0.0.1:53345
-find-process-mode: strict
-global-client-fingerprint: chrome
-profile:
-  store-selected: true
-  store-fake-ip: true
-sniffer:
-  enable: true
-  parse-pure-ip: true
-  sniff:
-    TLS:
-      ports:
-        - 443
-        - 8443
-    HTTP:
-      ports:
-        - 80
-        - 8080-8880
-      override-destination: true
-tun:
-  enable: false
-  stack: system
-  dns-hijack:
-    - any:53
-  strict-route: true
-  auto-route: true
-  auto-detect-interface: true
 dns:
   enable: true
   prefer-h3: true
   ipv6: false
   enhanced-mode: fake-ip
   listen: 0.0.0.0:53
-  use-hosts: false
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - +.lan
