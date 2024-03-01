@@ -22,6 +22,7 @@ dns:
     - "*.msftconnecttest.com"
   nameserver:
     - system
+    - https://223.6.6.6/dns-query
 proxy-providers:
   cm:
     type: http
