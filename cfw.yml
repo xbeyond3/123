@@ -34,6 +34,8 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ cmliu
+    use:
+      - cm
   - name: ♻️ cmliu
     type: url-test
     url: https://www.apple.com/library/test/success.html
