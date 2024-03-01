@@ -65,7 +65,6 @@ rules:
   - PROCESS-NAME,Microsoft365 E5 Renew Plus.exe,DIRECT
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
-  - DOMAIN-KEYWORD,copilot,🚀 节点选择
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Reject,REJECT
   - RULE-SET,YouTube,🚀 节点选择,no-resolve
