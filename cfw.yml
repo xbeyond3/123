@@ -21,7 +21,7 @@ dns:
     - "*.msftncsi.com"
     - "*.msftconnecttest.com"
   nameserver:
-    - 853.afwfv.cn
+    - system
     - https://223.6.6.6/dns-query
     - https://doh.360.cn/dns-query
 proxy-providers:
