@@ -28,7 +28,7 @@ proxy-providers:
   cm:
     type: http
     path: ./profiles/cmliu.yaml
-    url: https://v1.mk/VZbEMx8
+    url: https://v1.mk/wkSqBof
     interval: 14400  
 
 proxy-groups:
