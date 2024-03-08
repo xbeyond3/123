@@ -68,8 +68,6 @@ rules:
   - DOMAIN-KEYWORD,huya,DIRECT
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Reject,REJECT
-  - RULE-SET,YouTube,🚀 节点选择,no-resolve
-  - RULE-SET,Google,🚀 节点选择,no-resolve
   - RULE-SET,Github,🚀 节点选择,no-resolve
   - RULE-SET,Telegram,🚀 节点选择,no-resolve
   - RULE-SET,Spotify,🚀 节点选择,no-resolve
