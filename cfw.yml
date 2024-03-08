@@ -20,13 +20,9 @@ dns:
     - +.local
     - "*.msftncsi.com"
     - "*.msftconnecttest.com"
-  default-nameserver:
+  nameserver:
     - 223.5.5.5
     - 119.29.29.29
-  nameserver:
-    - system
-    - https://223.6.6.6/dns-query
-    - https://doh.pub/dns-query
 proxy-providers:
   cm:
     type: http
