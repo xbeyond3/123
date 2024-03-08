@@ -66,10 +66,10 @@ rules:
   - PROCESS-NAME,Microsoft365 E5 Renew Plus.exe,DIRECT
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
-  - RULE-SET,Direct,DIRECT,no-resolve
-  - RULE-SET,Reject,REJECT,no-resolve
-  - RULE-SET,ChinaMax,DIRECT,no-resolve
-  - GEOIP,CN,DIRECT,no-resolve
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Reject,REJECT
+  - RULE-SET,Global,🚀 节点选择  
+  - RULE-SET,ChinaMax,DIRECT
   - MATCH,🐟️ 漏网之鱼
 rule-providers:
   Reject:
@@ -93,6 +93,6 @@ rule-providers:
   Global:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Classical.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml
     path: ./ruleset/Global.yaml
     interval: 86400
