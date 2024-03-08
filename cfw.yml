@@ -38,11 +38,12 @@ proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
-      - ♻️ cmliu
+      - ♻️ HK
+      - ♻️ JP
     # use:
     #   - cm
     # filter: "(?i)港|hk|jp"
-  - name: ♻️ cmliu
+  - name: ♻️ HK
     type: url-test
     url: https://www.apple.com/library/test/success.html
     interval: 300
@@ -50,7 +51,15 @@ proxy-groups:
     use:
       - cm
     filter: "(?i)港|hk"
-
+  - name: ♻️ JP
+    type: url-test
+    url: https://www.apple.com/library/test/success.html
+    interval: 300
+    tolerance: 50
+    use:
+      - cm
+    filter: "(?i)JP|jp"
+    
   - name: 🐟️ 漏网之鱼
     type: select
     proxies:
