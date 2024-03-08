@@ -66,9 +66,10 @@ rules:
   - PROCESS-NAME,Microsoft365 E5 Renew Plus.exe,DIRECT
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
-  - RULE-SET,Direct,DIRECT
-  - RULE-SET,Reject,REJECT
-  - RULE-SET,ChinaMax,DIRECT
+  - RULE-SET,Direct,DIRECT,no-resolve
+  - RULE-SET,Reject,REJECT,no-resolve
+  - RULE-SET,ChinaMax,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
   - MATCH,🐟️ 漏网之鱼
 rule-providers:
   Reject:
