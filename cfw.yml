@@ -49,7 +49,7 @@ proxy-groups:
     tolerance: 50
     use:
       - cm
-    filter: "(?i)港|hk|jp"
+    filter: "(?i)港|hk"
 
   - name: 🐟️ 漏网之鱼
     type: select
