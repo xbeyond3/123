@@ -1,12 +1,6 @@
 mode: rule
 ipv6: true
 mixed-port: 7897
-unified-delay: false
-tcp-concurrent: true
-keep-alive-interval: 15
-external-controller: 127.0.0.1:53345
-find-process-mode: strict
-global-client-fingerprint: chrome
 dns:
   enable: true
   prefer-h3: true
