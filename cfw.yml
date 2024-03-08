@@ -39,9 +39,9 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ cmliu
-    use:
-      - cm
-    filter: "(?i)港|hk|jp"
+    # use:
+    #   - cm
+    # filter: "(?i)港|hk|jp"
   - name: ♻️ cmliu
     type: url-test
     url: https://www.apple.com/library/test/success.html
