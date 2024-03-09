@@ -50,11 +50,11 @@ proxy-groups:
       - cm
     filter: "(?i)JP|jp"
     
-  - name: 🐟️ 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择   
-      - DIRECT
+  # - name: 🐟️ 漏网之鱼
+  #   type: select
+  #   proxies:
+  #     - 🚀 节点选择   
+  #     - DIRECT
 
 rules:
   - DOMAIN,appcloud2.in.zhihu.com,REJECT
@@ -67,9 +67,8 @@ rules:
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
   - RULE-SET,Direct,DIRECT
-  - RULE-SET,Reject,REJECT
   - RULE-SET,ChinaMax,DIRECT
-  - MATCH,🐟️ 漏网之鱼
+  - MATCH,🚀 节点选择
 rule-providers:
   Reject:
     type: http
