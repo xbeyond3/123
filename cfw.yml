@@ -68,7 +68,6 @@ rules:
   - DOMAIN-KEYWORD,huya,DIRECT
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Reject,REJECT
-  - RULE-SET,Global,🚀 节点选择  
   - RULE-SET,ChinaMax,DIRECT
   - MATCH,🐟️ 漏网之鱼
 rule-providers:
