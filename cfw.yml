@@ -28,7 +28,7 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ HK
-      # - ♻️ JP
+      - ♻️ JP
     use:
       - cm
     # filter: "(?i)港|hk|jp"
@@ -40,14 +40,14 @@ proxy-groups:
     use:
       - cm
     filter: "(?i)港|hk"
-  # - name: ♻️ JP
-  #   type: url-test
-  #   url: https://www.apple.com/library/test/success.html
-  #   interval: 300
-  #   tolerance: 50
-  #   use:
-  #     - cm
-  #   filter: "(?i)JP|jp"
+  - name: ♻️ JP
+    type: url-test
+    url: https://www.apple.com/library/test/success.html
+    interval: 300
+    tolerance: 50
+    use:
+      - cm
+    filter: "(?i)JP|jp"
     
   # - name: 🐟️ 漏网之鱼
   #   type: select
