@@ -55,6 +55,8 @@ proxy-groups:
   #     - DIRECT
 
 rules:
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+  - DOMAIN-SUFFIX,services.googleapis.cn
   - DOMAIN,853.afwfv.cn,DIRECT
   - DOMAIN,appcloud2.in.zhihu.com,REJECT
   - DOMAIN,mqtt.zhihu.com,REJECT
