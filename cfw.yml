@@ -55,6 +55,7 @@ proxy-groups:
   #     - DIRECT
 
 rules:
+  - DOMAIN,853.afwfv.cn,DIRECT
   - DOMAIN,appcloud2.in.zhihu.com,REJECT
   - DOMAIN,mqtt.zhihu.com,REJECT
   - DOMAIN,sugar.zhihu.com,REJECT
