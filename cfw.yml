@@ -55,6 +55,8 @@ proxy-groups:
   #     - DIRECT
 
 rules:
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🚀 节点选择
+  - DOMAIN-SUFFIX,services.googleapis.cn,🚀 节点选择
   - IP-CIDR,120.232.181.162/32,🚀 节点选择,no-resolve
   - IP-CIDR,120.241.147.226/32,🚀 节点选择,no-resolve
   - IP-CIDR,120.253.253.226/32,🚀 节点选择,no-resolve
