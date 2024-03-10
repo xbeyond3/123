@@ -47,7 +47,7 @@ proxy-groups:
     tolerance: 50
     use:
       - cm
-    filter: "(?i)JP|jp"
+    filter: "(?i)日本|jp"
     
   # - name: 🐟️ 漏网之鱼
   #   type: select
