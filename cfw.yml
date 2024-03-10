@@ -21,7 +21,7 @@ proxy-providers:
   cm:
     type: http
     path: ./profiles/cmliu.yaml
-    url: https://v1.mk/ZTcqBEm
+    url: https://d1.mk/ZTcqBEm
 
 proxy-groups:
   - name: 🚀 节点选择
