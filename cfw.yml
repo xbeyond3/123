@@ -31,7 +31,7 @@ proxy-groups:
       - ♻️ JP
     use:
       - cm
-    # filter: "(?i)港|hk|jp"
+    filter: "(?i)港|hk|jp"
   - name: ♻️ HK
     type: url-test
     url: https://www.apple.com/library/test/success.html
@@ -47,7 +47,6 @@ proxy-groups:
     tolerance: 50
     use:
       - cm
-    filter: "(?i)日本|jp"
     
   # - name: 🐟️ 漏网之鱼
   #   type: select
