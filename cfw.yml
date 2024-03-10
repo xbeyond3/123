@@ -55,8 +55,6 @@ proxy-groups:
   #     - DIRECT
 
 rules:
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🚀 节点选择
-  - DOMAIN-SUFFIX,services.googleapis.cn,🚀 节点选择
   - DOMAIN,853.afwfv.cn,DIRECT
   - DOMAIN,appcloud2.in.zhihu.com,REJECT
   - DOMAIN,mqtt.zhihu.com,REJECT
@@ -67,6 +65,7 @@ rules:
   - PROCESS-NAME,Microsoft365 E5 Renew Plus.exe,DIRECT
   - DOMAIN-KEYWORD,naivetab,DIRECT
   - DOMAIN-KEYWORD,huya,DIRECT
+  - RULE-SET,Google,🚀 节点选择
   - RULE-SET,Direct,DIRECT
   - RULE-SET,ChinaMax,DIRECT
   - MATCH,🚀 节点选择
@@ -77,6 +76,12 @@ rule-providers:
   #   url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical_No_Resolve.yaml
   #   path: ./ruleset/Reject.yaml
   #   interval: 86400
+  Google:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_No_Resolve.yaml
+    path: ./ruleset/Google.yaml
+    interval: 86400
   Direct:
     type: http
     behavior: classical
