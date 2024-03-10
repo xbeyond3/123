@@ -1,22 +1,19 @@
-mode: rule
-ipv6: true
-mixed-port: 7897
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
 dns:
-  enable: true
-  prefer-h3: true
-  ipv6: false
-  enhanced-mode: fake-ip
-  listen: 0.0.0.0:53
-  use-hosts: false
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-    - +.lan
-    - +.local
-    - "*.msftncsi.com"
-    - "*.msftconnecttest.com"
+  enabled: true
   nameserver:
-    - 223.5.5.5
     - 119.29.29.29
+    - 223.5.5.5
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
 proxy-providers:
   cm:
     type: http
