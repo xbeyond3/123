@@ -21,17 +21,16 @@ proxy-providers:
   cm:
     type: http
     path: ./profiles/cmliu.yaml
-    url: https://dlmix.623057.xyz/mix
-    interval: 14400  
+    url: https://v1.mk/ZTcqBEm
 
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ HK
-      - ♻️ JP
-    # use:
-    #   - cm
+      # - ♻️ JP
+    use:
+      - cm
     # filter: "(?i)港|hk|jp"
   - name: ♻️ HK
     type: url-test
@@ -41,14 +40,14 @@ proxy-groups:
     use:
       - cm
     filter: "(?i)港|hk"
-  - name: ♻️ JP
-    type: url-test
-    url: https://www.apple.com/library/test/success.html
-    interval: 300
-    tolerance: 50
-    use:
-      - cm
-    filter: "(?i)JP|jp"
+  # - name: ♻️ JP
+  #   type: url-test
+  #   url: https://www.apple.com/library/test/success.html
+  #   interval: 300
+  #   tolerance: 50
+  #   use:
+  #     - cm
+  #   filter: "(?i)JP|jp"
     
   # - name: 🐟️ 漏网之鱼
   #   type: select
