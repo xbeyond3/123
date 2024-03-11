@@ -26,9 +26,9 @@ proxy-groups:
     proxies:
       - ♻️ HK
       - ♻️ JP
-    use:
-      - cm
-    filter: "(?i)港|hk|jp"
+    # use:
+    #   - cm
+    # filter: "(?i)港|hk|jp"
   - name: ♻️ HK
     type: url-test
     url: https://www.apple.com/library/test/success.html
