@@ -52,7 +52,7 @@ proxy-groups:
   #     - DIRECT
 
 rules:
-  - DOMAIN-SUFFIX,googleleapis.com,🚀 节点选择
+  - DOMAIN-SUFFIX,googleapis.com,🚀 节点选择
   - DOMAIN,appcloud2.in.zhihu.com,REJECT
   - DOMAIN,mqtt.zhihu.com,REJECT
   - DOMAIN,sugar.zhihu.com,REJECT
