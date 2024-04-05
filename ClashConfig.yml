@@ -45,7 +45,7 @@ sniffer:                              # 嗅探域名 可选配置
 
 
 tun:
-  enable: true
+  enable: false
   stack: system                       # 可选： system/gvisor/
   dns-hijack: [any:53]                # dns劫持,一般设置为 any:53 即可, 即劫持所有53端口的udp流量
   strict-route: true                  # 将所有连接路由到tun来防止泄漏，但你的设备将无法被其他设备访问
@@ -56,7 +56,7 @@ dns:
   enable: true                        # 关闭将使用系统 DNS
   ipv6: false                         # IPV6解析开关；如果为false，将返回ipv6结果为空
   enhanced-mode: fake-ip              # 模式：redir-host或fake-ip
-  listen: :1053                       # DNS 监听地
+  listen: 0.0.0.0:53                  # DNS 监听地
   fake-ip-range: 198.18.0.1/16        # fakeip 下的 IP 段设置，tun 网卡的默认 ip 也使用此值
   fake-ip-filter: ['*', '+.lan', '+.local', '+.msftncsi.com', '+.msftconnecttest.com']
   default-nameserver:
