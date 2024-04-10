@@ -19,19 +19,6 @@ profile:
   store-selected: true                # 存储 select 选择记录
   store-fake-ip: true                 # 持久化 fake-ip
 
-sniffer:                              # 嗅探域名 可选配置
-  enable: true
-  parse-pure-ip: true                 # 是否使用嗅探结果作为实际访问，默认 true
-  sniff:
-    HTTP:
-      ports: [80, 8080-8880]
-      override-destination: true
-    TLS: 
-      ports: [443, 8443]
-    QUIC:
-      ports: [443, 8443]
-
-
 tun:
   enable: true
   stack: system                       # 可选： system/gvisor/
