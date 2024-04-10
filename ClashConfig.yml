@@ -4,7 +4,6 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: true
-external-controller: "127.0.0.1:9090"
 
 experimental:
   ignore-resolve-fail: true
@@ -15,17 +14,6 @@ keep-alive-interval: 30               #  TCP keep alive interval
 skip-auth-prefixes:                   # 设置跳过验证的IP段
   - 127.0.0.1/8
   - ::1/128
-
-geodata-mode: true                    #【Meta专属】使用geoip.dat数据库(默认：false使用mmdb数据库)
-geox-url:                             # 自定义 geodata url, 需要有代理的前提才能下载geoip和geosite
-  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip-lite.dat"
-  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  mmdb: "https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb"
-geo-auto-update: true                 # 是否自动更新 geodata
-geo-update-interval: 24               # 更新间隔，单位：小时
-
-find-process-mode: strict             # 匹配所有进程（always/strict/off）
-global-client-fingerprint: chrome     # 全局 TLS 指纹，优先低于 proxy 内的 client-fingerprint
 
 profile:
   store-selected: true                # 存储 select 选择记录
@@ -45,7 +33,7 @@ sniffer:                              # 嗅探域名 可选配置
 
 
 tun:
-  enable: false
+  enable: true
   stack: system                       # 可选： system/gvisor/
   dns-hijack: [any:53]                # dns劫持,一般设置为 any:53 即可, 即劫持所有53端口的udp流量
   strict-route: true                  # 将所有连接路由到tun来防止泄漏，但你的设备将无法被其他设备访问
@@ -56,7 +44,6 @@ dns:
   enable: true                        # 关闭将使用系统 DNS
   ipv6: false                         # IPV6解析开关；如果为false，将返回ipv6结果为空
   enhanced-mode: fake-ip              # 模式：redir-host或fake-ip
-  listen: 0.0.0.0:53                  # DNS 监听地
   fake-ip-range: 198.18.0.1/16        # fakeip 下的 IP 段设置，tun 网卡的默认 ip 也使用此值
   fake-ip-filter: ['*', '+.lan', '+.local', '+.msftncsi.com', '+.msftconnecttest.com']
   default-nameserver:
@@ -66,6 +53,3 @@ dns:
     "geosite:cn,private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:geolocation-!cn": [https://dns.google/dns-query, https://dns.cloudflare.com/dns-query]
   nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
-  fallback: [tls://8.8.4.4, tls://1.1.1.1]
-  fallback-filter: { geoip: true, geoip-code: CN, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
-  
