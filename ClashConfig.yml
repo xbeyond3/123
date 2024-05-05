@@ -34,11 +34,9 @@ sniffer:                              # 嗅探域名 可选配置
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
-  force-domain: []                    # 强制对此域名进行嗅探
-  skip-domain: ['Mijia Cloud']        # 跳过对此域名进行嗅探
 
 tun:                                  # Tun 配置
-  enable: true
+  enable: false
   stack: system                       # 可选： system/gvisor/mixed
                                       # tun模式堆栈,如无使用问题,建议使用 system 栈;
   dns-hijack: [any:53]                # dns劫持,一般设置为 any:53 即可, 即劫持所有53端口的udp流量
@@ -50,7 +48,7 @@ dns:
   enable: true                        # 关闭将使用系统 DNS
   ipv6: false                         # IPV6解析开关；如果为false，将返回ipv6结果为空
   enhanced-mode: fake-ip              # 模式：redir-host或fake-ip
-  listen: :1053                       # DNS 监听地
+  listen: :53                         # DNS 监听地
   fake-ip-range: 198.18.0.1/16        # fakeip 下的 IP 段设置，tun 网卡的默认 ip 也使用此值
   fake-ip-filter: ['*', '+.lan', '+.local', '+.msftncsi.com', '+.msftconnecttest.com']
                                       # Fake-ip 过滤，列表中的域名返回真实IP
