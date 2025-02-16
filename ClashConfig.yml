@@ -30,17 +30,12 @@ dns:
   enable: true                        # 关闭将使用系统 DNS
   ipv6: true                          # IPV6解析开关；如果为false，将返回ipv6结果为空
   enhanced-mode: fake-ip              # 模式：redir-host或fake-ip
-  listen: :1053                         # DNS 监听地
+  listen: 0.0.0.0:1053                # DNS 监听地
   fake-ip-range: 198.18.0.1/16        # fakeip 下的 IP 段设置，tun 网卡的默认 ip 也使用此值
   fake-ip-filter: ['*', '+.lan', '+.local', '+.msftncsi.com', '+.msftconnecttest.com']
                                       # Fake-ip 过滤，列表中的域名返回真实IP
-  proxy-server-nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
-                                      # 代理DNS服务器，支持udp/tcp/dot/doh/doq
-  nameserver-policy:
-   "geosite:cn,private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-                                      # 指定域名查询的解析服务器，可使用 geosite, 优先于 nameserver/fallback 查询
-  nameserver: [223.5.5.5, 119.29.29.29]
+  nameserver: [223.5.5.5, 119.29.29.29, 127.0.0.1, ::1]
                                       # 默认DNS服务器，支持udp/tcp/dot/doh/doq
-  fallback: [tls://8.8.4.4, tls://1.1.1.1]
+  fallback: [tls://8.8.4.4, tls://1.0.0.1]
                                       # fallbaack DNS服务器，支持udp/tcp/dot/doh/doq
   fallback-filter: { geoip: true, geoip-code: CN, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
