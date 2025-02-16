@@ -67,7 +67,6 @@ proxy-groups:
       - sub.110.cloudns.org 15
       - sub.110.cloudns.org 18
       - sub.110.cloudns.org 20
-      - sub.110.cloudns.org 23
       - sub.110.cloudns.org 24
       - sub.110.cloudns.org 25
       - sub.110.cloudns.org 28
