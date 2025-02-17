@@ -26,4 +26,3 @@ dns:
                                       # 默认DNS服务器，支持udp/tcp/dot/doh/doq
   fallback: [tls://8.8.4.4, tls://1.0.0.1]
                                       # fallbaack DNS服务器，支持udp/tcp/dot/doh/doq
-  fallback-filter: { geoip: true, geoip-code: CN, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
