@@ -4,19 +4,13 @@ bind-address: '*'                     # 监听IP白名单，可绑定单个IPv4�
 unified-delay: false                  # 统一延迟，更换延迟计算方式，去除握手等额外延迟
 tcp-concurrent: true                  #【Meta专属】TCP 并发连接所有 IP, 将使用最快握手的 TCP
 keep-alive-interval: 15               #  TCP keep alive interval
-skip-auth-prefixes:                   # 设置跳过验证的IP段
-  - 127.0.0.1/8
-  - ::1/128
-find-process-mode: strict             # 匹配所有进程（always/strict/off）
-global-client-fingerprint: chrome     # 全局 TLS 指纹，优先低于 proxy 内的 client-fingerprint
-                                      # 可选： "chrome","firefox","safari","ios","random","none" options.
 profile:
   store-selected: true                # 存储 select 选择记录
   store-fake-ip: true                 # 持久化 fake-ip
 
 dns:
   enable: true                        # 关闭将使用系统 DNS
-  ipv6: true                          # IPV6解析开关；如果为false，将返回ipv6结果为空
+  ipv6: false                          # IPV6解析开关；如果为false，将返回ipv6结果为空
   enhanced-mode: fake-ip              # 模式：redir-host或fake-ip
   listen: 0.0.0.0:1053                # DNS 监听地
   fake-ip-range: 198.18.0.1/16        # fakeip 下的 IP 段设置，tun 网卡的默认 ip 也使用此值
