@@ -13,38 +13,23 @@ proxy-providers:
   sub1:
     type: file
     path: ./profiles/sub1.yml
-    #url: 
-    #interval: 86400
+    url: 
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
-  sub2:
-    type: file
-    path: ./profiles/sub2.yml
-    #url: 
-    #interval: 86400
-    override:
-      skip-cert-verify: true
-      udp: true
-  trojan:
-    type: http
-    path: ./profiles/trojan.yml
-    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 3600
     
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
-    - 🌸 负载均衡
     - ♻️ 自动选择
     - 👆 手动选择
-    - 🌏 trojan
     
 - name: 👆 手动选择
   type: select
   use:
-  - sub2
+  - sub1
 - name: ♻️ 自动选择
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -52,47 +37,6 @@ proxy-groups:
   tolerance: 30
   use:
   - sub1
-  - sub2
-- name: 🌏 trojan
-  type: select
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 30
-  use:
-  - trojan
-- name: 🌸 负载均衡
-  type: load-balance
-  strategy: consistent-hashing
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  proxies:
-    - 🇭🇰香港_AA
-    - 🇭🇰香港_BB
-    - 🇭🇰香港_CC
-- name: 🇭🇰香港_AA
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 30
-  use:
-  - sub1
-  filter: "(?i)港|hk|hongkong|AA"
-- name: 🇭🇰香港_BB
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 30
-  use:
-  - sub1
-  filter: "(?i)港|hk|hongkong|BB"
-- name: 🇭🇰香港_CC
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 30
-  use:
-  - sub1
-  filter: "(?i)港|hk|hongkong|CC"
 - name: 🐟️ 漏网之鱼
   type: select
   proxies:
